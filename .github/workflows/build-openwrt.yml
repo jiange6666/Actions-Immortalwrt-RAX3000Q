@@ -17,14 +17,14 @@ on:
       ssh:
         description: 'SSH connection to Actions'
         required: false
-        default: 'false'
+        default: false
         type: boolean
   schedule:
     - cron: 0 8 * * 2
 
 env:
   REPO_URL: https://github.com/kkstone/immortalwrt-ipq50xx
-  REPO_BRANCH: v23.05.3
+  REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -36,7 +36,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
@@ -93,7 +93,7 @@ jobs:
       uses: klever1988/cachewrtbuild@main
       with:
         ccache: 'true'
-        mixkey: 'immortalwrt23-ipq50xx-v23.05.3' #'immortalwrt23-cortexa7-vfpv4'
+        mixkey: 'immortalwrt21-cortexa7-vfpv4'
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
