@@ -24,7 +24,7 @@ on:
 
 env:
   REPO_URL: https://github.com/kkstone/immortalwrt-ipq50xx
-  REPO_BRANCH: openwrt-21.02
+  REPO_BRANCH: v23.05.3
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -93,7 +93,7 @@ jobs:
       uses: klever1988/cachewrtbuild@main
       with:
         ccache: 'true'
-        mixkey: 'immortalwrt21-cortexa7-vfpv4'
+        mixkey: 'immortalwrt23-cortexa7-vfpv4'
         prefix: ${{ github.workspace }}/openwrt
 
     - name: Load custom feeds
